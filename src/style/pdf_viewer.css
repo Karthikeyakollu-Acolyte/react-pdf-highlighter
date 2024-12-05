@@ -1,0 +1,96 @@
+/* overrides for pdf_viewer.css from PDF.JS web viewer */
+
+/* .textLayer {
+  z-index: 2;
+  opacity: 1;
+  display: flex;
+  mix-blend-mode: multiply;
+  
+}
+
+.textLayer :is(span, br){
+
+  color: transparent;
+  position:absolute;
+  white-space:pre;
+  cursor:text;
+  transform-origin:0% 0%;
+} */
+
+
+.pdfViewer{
+  /* transform: scale(0.8); */
+}
+
+.thumbnail-view {
+  transform: scale(0.5); /* Adjust scale as needed */
+  transform-origin: top left;
+  overflow: hidden; /* Hide any overflow if required */
+}
+
+.pdf-viewer-container {
+  display: flex; /* Place sidebar next to the main viewer */
+}
+
+.pdf-sidebar {
+  width: 300%; /* Adjust width as necessary */
+  height: 100vh; /* Full height */
+  overflow-y: auto; /* Allow scrolling if content is taller than the sidebar */
+  background-color: #f0f0f0; /* Optional: set a background color to see the sidebar */
+  border: 1px solid #ccc; /* Optional: for visibility */
+  color: black;
+}
+
+
+.pdf-sidebar .textLayer :is(span, br){
+
+  color: black;
+  position:absolute;
+  white-space:pre;
+  cursor:text;
+  transform-origin:0% 0%;
+} 
+
+.annotationLayer {
+  position: absolute;
+  top: 0;
+
+  z-index: 3;
+}
+
+html
+  body
+  .textLayer
+  > div:not(.PdfHighlighter__highlight-layer):not(.Highlight):not(
+    .Highlight__emoji
+  ) {
+  opacity: 1;
+  mix-blend-mode: multiply;
+}
+
+.textLayer ::selection {
+  background: rgba(252, 232, 151, 1);
+  mix-blend-mode: multiply;
+}
+
+/* biome-ignore lint/correctness/noUnknownMediaFeatureName: update this */
+@media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+  .textLayer {
+    opacity: 0.5;
+  }
+}
+
+/* Internet Explorer support method */
+/* biome-ignore lint/correctness/noUnknownMediaFeatureName: update this */
+@media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+  .textLayer {
+    opacity: 0.5;
+  }
+}
+
+/* Microsoft Edge Browser 12+ (All) - @supports method */
+@supports (-ms-ime-align: auto) {
+  .textLayer {
+    opacity: 0.5;
+  }
+}
